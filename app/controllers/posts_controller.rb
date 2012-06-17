@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 
 # Empty model for @posts for initialization
-# def new
-#   @post = Post.new(params[:post])
-#  end
+  def new
+    @post = Post.new(params[:post])
+  end
     
   # GET /posts
   # GET /posts.json
