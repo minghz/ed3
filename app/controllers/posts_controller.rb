@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
 
+  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+
 # Empty model for @posts for initialization
-  def new
-    @post = Post.new(params[:post])
-  end
+# TODO not sure if needed!!!
+#  def new
+#    @post = Post.new(params[:post])
+#  end
     
   # GET /posts
   # GET /posts.json

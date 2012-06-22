@@ -5,4 +5,6 @@ class Post < ActiveRecord::Base
   
   validates :content,  :presence => true,
                        :length => { :maximum => 20 }
+
+  has_many :comments, :dependent => :destroy
 end
