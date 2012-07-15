@@ -1,3 +1,45 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#header{
+  position:static;
+  color: #fff;
+  width:800px;
+  height:100px;
+  //border:1px solid white;
+}
+div#content{
+  position:relative;
+  height:300px;
+  width:800px;
+
+  //border:1px solid white;
+}
+div#summary{
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:300px;
+  width:200px;
+  overflow:auto;
+  
+  //border:1px solid white;
+}
+div#data{
+  position:absolute;
+  top:0px;
+  left:200px;
+  width:600px;
+  height:300px;
+  overflow:auto;
+
+  //border:1px solid white;
+}
+div#data table{
+}
+div#footer{
+  position:static;
+  width:800px;
+  //border:1px solid white;
+}
