@@ -1,11 +1,14 @@
 Ed3::Application.routes.draw do
 
+  get "users/new"
+
   resources :posts do
     resources :comments
   end
 
   get "home/index"
 
+  match '/signup', to: 'users#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
