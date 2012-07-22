@@ -1,10 +1,9 @@
 Ed3::Application.routes.draw do
 
-  get "users/new"
-
   resources :posts do
     resources :comments
   end
+  resources :users
 
   get "home/index"
 
