@@ -9,17 +9,17 @@ every page %>
   <p><%= value %></p>
 <% end %>
 
-<%= form_for(:session, url: sessions_path) do |f| %>
+<%= form_tag sessions_path do %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    E-mail: <br />
+    <%= text_field_tag 'email'%>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    Password: <br />
+    <%= password_field_tag "password" %>
   </div>
   <div class="actions">
-    <%= f.submit "Sign In", :class => "submit" %>
+    <%= submit_tag "Sign In", :class => "submit" %>
   </div>
 <% end %>
 
