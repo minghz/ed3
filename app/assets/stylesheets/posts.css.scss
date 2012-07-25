@@ -2,25 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div#header{
-  position:static;
-  color: #fff;
-  width:800px;
-  height:100px;
-  //border:1px solid white;
-}
 div#content{
   position:relative;
-  height:300px;
-  width:800px;
+  height:500px;
+  width:1000px;
 
   //border:1px solid white;
 }
 div#summary{
   position:absolute;
+  padding-left: 10px;
+  padding-right: 10px;
   top:0px;
   left:0px;
-  height:300px;
+  height:500px;
   width:200px;
   overflow:auto;
   
@@ -28,10 +23,12 @@ div#summary{
 }
 div#data{
   position:absolute;
+  padding-left: 10px;
+  padding-right: 10px;
   top:0px;
-  left:200px;
-  width:600px;
-  height:300px;
+  left:220px;
+  width:760px;
+  height:500px;
   overflow:auto;
 
   //border:1px solid white;
@@ -40,6 +37,6 @@ div#data table{
 }
 div#footer{
   position:static;
-  width:800px;
+  width:1000px;
   //border:1px solid white;
 }

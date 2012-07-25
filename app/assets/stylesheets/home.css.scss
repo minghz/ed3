@@ -17,3 +17,30 @@ a {
     color: #999;
     background-color: #000; } }
 
+div#header{//header id
+  position:static;
+  color: #fff;
+  width:800px;
+  height:120px;
+  //border:1px solid white;
+}
+
+div#logo{
+  height:100px;
+  background:url('logo.jpg');
+}
+div#nav-bar{
+  a {
+    color:#fff;
+    text-decoration:none;
+    &:hover{
+      color:#555;
+    }
+  }
+  height:20px;
+}
+div.nav-bar-block{
+  display: inline;
+  margin:5px;
+  width: 50px;
+}
