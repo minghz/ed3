@@ -3,6 +3,8 @@
     <p>summary div space holder</p>
   </div>
   <div id="data">
+    
+  <%= will_paginate %>
     <table>
       <tr>
         <th>Title</th>
@@ -11,18 +13,19 @@
         <th></th>
         <th></th>
       </tr>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.content %></td>
+          <td><%= link_to 'More', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
+      <% end %>
 
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'More', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-      </tr>
-    <% end %>
     </table>
-
+    <%= will_paginate %>
+    
     <br />
 
     <%= link_to 'New Post', new_post_path %>

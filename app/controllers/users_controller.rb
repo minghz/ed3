@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page]) #paginate limit per_page defaults to 30
   end
 
   private
