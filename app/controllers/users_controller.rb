@@ -10,7 +10,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    unless signed_in?
+      @user = User.new
+    else
+     redirect_to(root_path)
+    end
   end
 
   def create
