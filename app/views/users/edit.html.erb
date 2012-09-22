@@ -1,8 +1,6 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<h1>Edit your profile</h1>
 
-<div id="signup">
-
+<div class="row">
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
 
@@ -19,12 +17,13 @@
       <%= f.password_field :password %>
     </div>
     <div class="field">
-      <%= f.label :password_confirmation, "Confirmation" %></br>
+      <%= f.label :password_confirmation, "Confirm Password" %></br>
       <%= f.password_field :password_confirmation %>
     </div>
     <div class="actions">
-      <%= f.submit "Create my account", :class => 'submit' %>
+      <%= f.submit "Save changes", :class => 'submit' %>
     </div>
+
   <% end %>
 
 </div>
