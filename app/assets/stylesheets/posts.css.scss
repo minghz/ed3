@@ -9,6 +9,8 @@ div#content{
 
   //border:1px solid white;
 }
+
+//non-existant for now
 div#summary{
   position:absolute;
   padding-left: 10px;
@@ -21,19 +23,23 @@ div#summary{
   
   //border:1px solid white;
 }
-div#data{
+
+div#post{
+
+}
+
+div#posts{
   position:absolute;
   padding-left: 10px;
   padding-right: 10px;
   top:0px;
-  left:220px;
+  //left:220px;
   width:760px;
   height:500px;
   overflow:auto;
 
-  //border:1px solid white;
 }
-div#data table{
+div#posts table{
 }
 div#footer{
   position:static;

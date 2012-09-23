@@ -1,38 +1,22 @@
 <div id="content">
-  <div id="summary">
-    <p>summary div space holder</p>
-  </div>
-  <div id="data">
-    
-  <%= will_paginate %>
+
+  <div id="posts">  
+    <%= will_paginate %>
     <table>
+    <% @posts.each do |post| %>
       <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.title %></td>
-          <td><%= post.content %></td>
-          <td><%= link_to 'More', post %></td>
+        <td><%= link_to post.title, post %></td>
+        <td><%= post.content %></td>
+        
+        <% if signed_in? && current_user.admin? %> 
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-        </tr>
-      <% end %>
-
+        <% end %>
+      </tr>
+    <% end %>
     </table>
     <%= will_paginate %>
     
     <br />
-
-    <%= link_to 'New Post', new_post_path %>
   </div>
-
-</div>
-
-<div id="footer">
-  <p>Copyright 2012</p>
 </div>

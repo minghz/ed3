@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-color: #000;
-  color: #777;
+  background-color: #FAE0C2; //primary color
+  color: #000;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; }
@@ -12,35 +12,32 @@ body {
 a {
   color: #777;
   &:visited {
-    color: #555; }
+    color: #111; }
   &:hover {
-    color: #999;
-    background-color: #000; } }
-
-div#header{//header id
-  position:static;
-  color: #fff;
-  width:800px;
-  height:120px;
-  //border:1px solid white;
+    color: #A63800; }
 }
 
 div#logo{
   height:100px;
-  background:url('logo.jpg');
+  //background:url('logo.jpg');
+  background-repeat:no-repeat;
 }
-div#nav-bar{
+div#menu{
   a {
     color:#fff;
     text-decoration:none;
     &:hover{
-      color:#555;
+      color: #A63800;
     }
   }
-  height:20px;
+  background-color: #567C8C; //complementary color
+  position:static;
+  width:800px;
+  height:30px;
+
+  border:1px solid white;
 }
-div.nav-bar-block{
+div.menu-block{
   display: inline;
-  margin:5px;
-  width: 50px;
+  margin:10px;
 }

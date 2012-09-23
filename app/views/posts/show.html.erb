@@ -1,29 +1,16 @@
 <div id="content">
   <p id="notice"><%= notice %></p>
 
-  <div id="summary">
-    <p>
-      <h2><%= @post.title %></h2>
-    </p>
-
-    <p>
+  <div id="post">
+    
+    <h2><%= @post.title %></h2>
       <b>Author:</b>
       <%= @post.name %>
-    </p>
-
-    <p>
       <b>Tags:</b>
       <%= join_tags(@post) %>
-    </p>
 
-
-  </div>
-  
-  <div id="data">
-    <p>
       <b>Content:</b>
         <%= @post.content %>
-      </p>
 
     <h3>Comments</h3>
     <%= render @post.comments %>
@@ -38,8 +25,4 @@
   </div>
  
 
-</div>
-
-<div id="footer">
-  <p>Copyright 2012</p>
 </div>

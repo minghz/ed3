@@ -1,0 +1,12 @@
+<div id="menu">
+  <div class="menu-block"> <%= link_to "Home", root_path %> </div>
+    <% if signed_in? %>
+      <div class="menu-block"> <%= link_to 'New Post', new_post_path %></div>
+      <div class="menu-block"> <%= link_to "Users", users_path %></div>
+      <div class="menu-block"> <%= link_to "Profile", current_user %> </div>
+      <div class="menu-block"> <%= link_to "Settings", edit_user_path(current_user) %> </div>
+      <div class="menu-block"> <%= link_to "Sign out", signout_path, method: "delete" %> </div>
+    <% else %>
+      <div class="menu-block"> <%= link_to "Sign in", signin_path %> </div>
+    <% end %>
+  </div>
