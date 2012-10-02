@@ -4,13 +4,15 @@
   <div id="post">
     
     <h2><%= @post.title %></h2>
-      <b>Author:</b>
-      <%= @post.name %>
-      <b>Tags:</b>
-      <%= join_tags(@post) %>
+      <p>Author:<%= @post.user.name %></p>
+      
+      <p>Tags:<%= join_tags(@post) %></p>
+      
+      <p>Content:<%= @post.content %></p>
 
-      <b>Content:</b>
-        <%= @post.content %>
+      <br />
+      <br />
+
 
     <h3>Comments</h3>
     <%= render @post.comments %>
@@ -21,7 +23,7 @@
     <br />
 
     <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %>
+    <%= link_to 'All Posts', posts_path %>
   </div>
  
 

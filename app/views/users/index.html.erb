@@ -3,8 +3,19 @@
 <p id="notice"><%= flash[:error] %></p>
 
 <%= will_paginate %>
-  <ul class="users">
-    <%= render @users %>
-  </ul>
+
+<ul class="users">
+
+  <% @users.each do |u| %>
+    <li> <%= link_to u.name, u %> 
+      <% if current_user.admin? && !current_user?(u) %>
+        | <%= link_to "delete", u, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+      <% end %>
+
+    </li>
+  <% end %>
+
+</ul>
 
 <%= will_paginate %>

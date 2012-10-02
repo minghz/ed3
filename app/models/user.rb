@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible(:email, :name, :password, :password_confirmation)
+  attr_accessible(:email, :name, :posts_attributes, :password, :password_confirmation)
   has_secure_password
 
   before_save { self.email.downcase! }
@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
                         length: { minimum:6 }
            )
   validates(:password_confirmation, presence:true)
+
+  has_many :posts, :dependent => :destroy
+
+  accepts_nested_attributes_for :posts#, :allow_destroy => :true#,
+  #    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  #end
+  
 
   private
     def create_remember_token

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+  #http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
 
   # GET /posts
   # GET /posts.json
@@ -27,12 +27,20 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new
+    if signed_in?
+      @post = Post.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @post }
+      end
+
+    else
+      flash[:error] = "Please sign in to post"
+      redirect_to('/signin')
     end
+
+    
   end
 
   # GET /posts/1/edit
@@ -43,7 +51,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
+    @post = current_user.posts.create(params[:post])
 
     respond_to do |format|
       if @post.save

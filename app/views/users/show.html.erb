@@ -1,4 +1,15 @@
 <%= provide(:title, @user.name) %>
 <p id="notice"><%= flash[:success] %></p>
+
 <h1> <%= @user.name %></h1>
-<%= @user.email %>
+
+<% if @user.posts.empty? %>
+  <p> This user has no posts </p>
+<% else %>
+  <p> <%= @user.name %>'s Posts: </p>
+  <ul>
+    <% @user.posts.each do |p| %>
+      <li> <%= link_to p.title, p %> </li>
+    <% end %>
+  </ul>
+<% end %>
