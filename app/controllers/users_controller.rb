@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @all_comments = Comment.find_all_by_commenter(@user.name)
   end
 
   def new

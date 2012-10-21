@@ -4,6 +4,11 @@ Ed3::Application.routes.draw do
     resources :comments
   end
   resources :users
+
+#  map.resources :posts, :has_many => :comments 
+#  map.resources :users, :has_many => :comments
+
+
   resources :sessions, only: [:new, :create, :destroy]
 
   get "home/index"

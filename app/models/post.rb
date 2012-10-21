@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
   validates :content,  :presence => true
   validates :user_id,  :presence => true
 
-  has_many :comments, :dependent => :destroy
+  #has_many :comments, :dependent => :destroy
+  has_many :comments, :dependent => :destroy, :as => :commentable
   has_many :tags, :dependent => :destroy
 
   accepts_nested_attributes_for :tags, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }

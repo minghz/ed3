@@ -4,10 +4,10 @@
 
 div#content{
   position:relative;
-  height:500px;
+  height:600px;
   width:1000px;
 
-  //border:1px solid white;
+  border:1px solid black;
 }
 
 //non-existant for now
@@ -29,20 +29,22 @@ div#post{
 }
 
 div#posts{
-  position:absolute;
+  //position:absolute;
+  position:relative;
   padding-left: 10px;
   padding-right: 10px;
   top:0px;
   //left:220px;
   width:760px;
-  height:500px;
+  //height:500px;
   overflow:auto;
 
+  //border:1px solid white;
 }
 div#posts table{
 }
 div#footer{
   position:static;
   width:1000px;
-  //border:1px solid white;
+  //border:1px solid black;
 }
