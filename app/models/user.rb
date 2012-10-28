@@ -13,10 +13,16 @@ class User < ActiveRecord::Base
                     format: {with: VALID_EMAIL_REGEX },
                     uniqueness: {case_sensitive: false}
            )
-  validates(:password,  presence:true,
+  validates(:password_digest,  presence:true,
                         length: { minimum:6 }
            )
-  validates(:password_confirmation, presence:true)
+ # TODO: Add local check for password presence and password confirmation.
+           # In actuality, only password_digest is saved in the database
+ # validates(:password,  presence:true,
+ #                       length: { minimum:6 }
+ #          )
+
+  #validates(:password_confirmation, presence:true)
 
   has_many :posts, :dependent => :destroy
   #has_many :comments, :dependent => :destroy
@@ -26,6 +32,26 @@ class User < ActiveRecord::Base
   #    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   #end
   accepts_nested_attributes_for :comments
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    email = UserMailer.password_reset(self).deliver
+
+#    assert !ActionMailer::Base.deliveries.empty?
+#
+#    assert_equal [user.email], email.to
+#    assert_equal 'Ed3 Password Reset', email.subject
+    logger.debug email.body.to_s   
+  
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
 
   private
     def create_remember_token

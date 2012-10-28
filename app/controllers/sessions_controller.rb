@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
   end
 
   def create
@@ -11,8 +12,8 @@ class SessionsController < ApplicationController
   
     else
       #something went wrong, re-render the sign up form
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new', notice: 'bad email and password'
+      flash[:error] = 'Invalid email/password combination'
+      redirect_to '/signin'
     end
   end
 

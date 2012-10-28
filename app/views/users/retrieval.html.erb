@@ -1,0 +1,11 @@
+<p>Reset your password</p>
+
+<%= form_tag retrieval_path do %>
+  <div class="field">
+    The e-mail used for your account: <br />
+    <%= text_field_tag 'email'%>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Send Reset", :class => "submit" %>
+  </div>
+<% end %>

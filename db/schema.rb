@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020013606) do
+ActiveRecord::Schema.define(:version => 20121028012824) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -47,11 +47,13 @@ ActiveRecord::Schema.define(:version => 20121020013606) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",                  :default => false
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

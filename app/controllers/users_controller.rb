@@ -48,6 +48,8 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page]) #paginate limit per_page defaults to 30
   end
 
+
+
   def destroy
     if User.find(params[:id]).admin?
       flash[:error] = "can't delete admin"
