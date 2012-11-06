@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
     save!
-    email = UserMailer.password_reset(self).deliver
+    email = UserMailer.password_reset(self)
+    email.deliver
 
 #    assert !ActionMailer::Base.deliveries.empty?
 #
