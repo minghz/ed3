@@ -15,11 +15,13 @@
     <h3>Comments</h3>
     <%= render "comments/comment" %>
 
-    <% if false %>
-
-  <% end %>
     <h3>Leave a Comment:</h3>
+
+  <% if signed_in? %>
     <%= render "comments/form" %>
+  <% else %>
+    <p>Please sign in to leave a comment!</p>
+  <% end %>
 
     <br />
 
