@@ -9,10 +9,11 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => 587,
-  :domain => "gmail.com",
+#  :domain => "gmail.com",
   :user_name => ENV['GMAIL_SMTP_USER'],
   :password => ENV['GMAIL_SMTP_PASSWORD'],
-  :authentication => 'plain'
+  :authentication => :plain,
+  :openssl_verify_mode  => 'none' 
 }
 #config.action_mailer.raise_delivery_errors = true
 
