@@ -34,7 +34,9 @@ Ed3::Application.configure do
   config.assets.debug = true
  
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = true
+  # In production, its set to true. There is some bug
+  #   not allowing me to send emails with localhost
+  config.action_mailer.raise_delivery_errors = false
 
   # Allow mailer url inclusion
   config.action_mailer.perform_deliveries = true

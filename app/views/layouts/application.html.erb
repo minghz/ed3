@@ -12,6 +12,17 @@
 	<%= render 'layouts/menu' %>
 <% end %>
 
+<% flash.each do |key, value| %>
+  <% if key.to_s == 'success' %>
+    <div class="flash-success"> <p><%= value %></p> </div>
+  <% elsif key.to_s == 'error' %>
+    <div class="flash-error"> <p><%= value %></p> </div>
+  <% else %>
+    <p><%= value %></p>
+  <% end %>
+<% end %>
+
+
 <%= yield %>
 
 

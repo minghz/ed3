@@ -1,0 +1,19 @@
+// Here are the css styles for the notice popups
+// They include the flash[] hashes,
+// And error_messages
+
+div#error_explanation {
+  background-color: #FF7373;
+  padding: 10px;
+  width: 500px;
+}
+div.flash-error {
+  background-color: #FF7373;
+  padding: 10px;
+  width: 500px;
+}
+div.flash-success {
+  background-color: #6EE768;
+  padding: 10px;
+  width: 500px;
+}

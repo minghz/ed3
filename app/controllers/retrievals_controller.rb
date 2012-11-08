@@ -11,7 +11,8 @@ class RetrievalsController < ApplicationController
       user = User.find_by_email(params[:email].downcase)
       if user != nil
         user.send_password_reset
-        redirect_to signin_url, :notice => "email sent with password reset " + user.email
+        flash[:success] = "email sent with password reset to " + user.email
+        redirect_to signin_url
       else
         flash[:error] = "this e-mail doesn't exist"
         render :new

@@ -43,7 +43,8 @@ class PostsController < ApplicationController
     @post = current_user.posts.create(params[:post])
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      flash[:success] = 'Post was successfully created.'
+      redirect_to @post
     else
       render :new
     end
@@ -56,7 +57,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
       if @post.update_attributes(params[:post])
-        redirect_to @post, notice: 'Post was successfully updated.'
+        flash[:success] = 'Post was successfully created.'
+        redirect_to @post 
       else
         render action: "edit"
       end

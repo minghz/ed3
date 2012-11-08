@@ -1,0 +1,26 @@
+<%#TODO future plan is to make this a shared entity
+        Ideally I can just call render on this file
+        witout needing the actual code.
+
+        Ony problem is that flash parameter doesn't
+        seem to transfer across the render method
+      %>
+
+
+
+<% flash.each do |key, value| %>
+
+  <% if key.to_s == 'success' %>
+    <div class="flash-success">
+      <p><%= value %></p>
+    </div>
+  <% elsif key.to_s == 'error' %>
+    <div class="flash-error">
+      <p><%= value %></p>
+    </div>
+  <% else %>
+    <p><%= value %></p>
+  <% end %>
+
+<% end %>
+

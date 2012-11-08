@@ -1,14 +1,6 @@
 <% provide(:title, "Sign in") %>
 <h1>Sign in</h1>
 
-<%# flash is just a standard error message. Its quite useful to put it
-inside the default application template so it is recyclable throughtout
-every page %>
-
-<% flash.each do |key, value| %>
-  <p><%= value %></p>
-<% end %>
-
 <%= form_tag sessions_path do %>
   <div class="field">
     E-mail: <br />

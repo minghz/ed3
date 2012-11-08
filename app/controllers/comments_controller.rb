@@ -20,7 +20,8 @@ before_filter :init
     @comment.commenter = current_user.name
     
     if @comment.save
-      redirect_to @commentable, notice: "Comment created."
+      flash[:success] = 'Comment created'
+      redirect_to @commentable
     else
       render :new #TODO redirect to original post 'posts/:id/'
     end
