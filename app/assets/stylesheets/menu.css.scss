@@ -1,0 +1,29 @@
+// this will contail all css files for the menu
+// of ed3
+div#menu{
+  color:#fff;
+  a {
+    color:#fff;
+    text-decoration:none;
+    &:hover{
+      color: #A63800;
+    }
+  }
+
+  background-color: #589058; //primary color
+  //background-color: #567C8C; //complementary color
+  position:static;
+  width:800px;
+  height:30px;
+
+  border:1px solid white;
+}
+
+div.menu-block{
+  display: inline;
+  margin:10px;
+}
+div.menu-block-admin{
+  display: inline;
+  margin:10px;
+}

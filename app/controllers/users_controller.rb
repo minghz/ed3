@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,     only: [:index, :destroy]
 
   
   def show
@@ -45,10 +45,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page]) #paginate limit per_page defaults to 30
+      @users = User.paginate(page: params[:page]) #paginate limit per_page defaults to 30
   end
-
-
 
   def destroy
     if User.find(params[:id]).admin?
@@ -65,17 +63,26 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Please sign in."
+        flash[:error] = "Please sign in"
+        redirect_to signin_url
       end
     end
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
+      if current_user?(@user)
+      else
+        flash[:error] = "Update your own profile!"
+        redirect_to(root_path)
+      end
     end
 
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      if current_user.admin?
+      else
+        flash[:error] = "You do not have admin privileges to access User list"
+        redirect_to(root_path)
+      end
     end
 
 end

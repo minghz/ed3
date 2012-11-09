@@ -6,25 +6,23 @@
   <p> This user has no posts </p>
 <% else %>
   <p> <%= @user.name %>'s Posts: </p>
-  <ul>
-    <% @user.posts.each do |p| %>
-      <li> <%= link_to p.title, p %> </li>
-    <% end %>
-  </ul>
-<% end %>
 
-<% if @all_comments.nil? %>
-  <p> This user has no comments </p>
-<% else %>
-  <p> <%= @user.name %>'s Comments: </p>
-  <ul>
-    <% @all_comments.each do |c| %>
-      <li> <%= c.body %> </li>
-    <% end %>
+  <table id="post-summary">
+    <tr>
+      <td><h3>Title</h3></td>
+      <td><h3>Content</h3></td>
+    </tr>
+    <% @user.posts.each do |post| %>
+      <tr>
+        <td><%= link_to post.title, post %></td>
+        <td><%= post.content %></td>
         
-  </ul>
-TODO: Figure out a way to display polymorphic items. I can't link_to c. Could link to the root commentable_type though... But best is to have a Show method for the polymorphic item.
+        <% if signed_in? && current_user.admin? %> 
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 
 <% end %>
-
-
