@@ -34,7 +34,8 @@ div#posts{
   padding-right: 10px;
   top:0px;
   //left:220px;
-  width:760px;
+  width:100%;
+  //width:900px;
   //height:500px;
   overflow:auto;
   //border:1px solid white;
@@ -43,7 +44,8 @@ div#posts{
 //# is id, . is class
 table#post-summary{
   margin: 20px;
-  //border:1px solid white;
+  border:1px solid white;
+  width: 800px;
 }
 
 div#footer{
