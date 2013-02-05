@@ -10,7 +10,6 @@ body {
   line-height: 18px;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 a {

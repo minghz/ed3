@@ -1,0 +1,29 @@
+
+<div id="posts">  
+
+  <h3><%= link_to 'New Post', new_post_path %></h3>
+  
+  <%= will_paginate %>
+
+  <table id="post-summary" border="1px solid white">
+    <tr>
+      <td><h3>Title</h3></td>
+      <td><h3>Content</h3></td>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td width="30%"><%= link_to post.title, post %></td>
+        <td width="70%"><%= post.content %></td>
+        
+        <% if signed_in? && current_user.admin? %> 
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate %>
+  
+  <br />
+</div>
